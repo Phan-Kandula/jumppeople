@@ -11,8 +11,14 @@ config_version=3
 [application]
 
 config/name="jumpman"
+
 run/main_scene="res://Player_zombie.tscn"
+
 config/icon="res://icon.png"
+
+[display]
+
+window/size/fullscreen=true
 
 [rendering]
 
