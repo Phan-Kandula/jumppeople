@@ -10,7 +10,6 @@ config_version=3
 
 [application]
 
-<<<<<<< HEAD
 config/name="jumpman"
 
 run/main_scene="res://Player_zombie.tscn"
@@ -19,14 +18,6 @@ config/icon="res://icon.png"
 
 [display]
 
-window/size/fullscreen=true
-
-=======
-config/name="Gameler1"
-run/main_scene="res://Node.tscn"
-config/icon="res://icon.png"
-
->>>>>>> These names are terrible
-[rendering]
+window/size/fullscreen=false
 
 environment/default_environment="res://default_env.tres"
