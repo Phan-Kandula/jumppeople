@@ -1,27 +1,41 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Environment/ground_cake.png" type="Texture" id=1]
-[ext_resource path="res://Environment/ground_cake_broken.png" type="Texture" id=2]
-[ext_resource path="res://Environment/ground_cake_small.png" type="Texture" id=3]
-[ext_resource path="res://Environment/ground_cake_small_broken.png" type="Texture" id=4]
+[ext_resource path="res://Zombie/zombie_tilesheet.png" type="Texture" id=2]
+[ext_resource path="res://Environment/ground_cake_broken.png" type="Texture" id=3]
+[ext_resource path="res://Environment/ground_cake_small.png" type="Texture" id=4]
+[ext_resource path="res://Environment/ground_cake_small_broken.png" type="Texture" id=5]
 
-[node name="map" type="Node" index="0"]
+[node name="map" type="Node"]
 
 [node name="ground_cake" type="Sprite" parent="." index="0"]
 
 texture = ExtResource( 1 )
 
-[node name="ground_cake_broken" type="Sprite" parent="." index="1"]
+[node name="zombie_tilesheet" type="Sprite" parent="ground_cake" index="0"]
 
+position = Vector2( -245.055, 286.663 )
 texture = ExtResource( 2 )
+
+[node name="ground_cake2" type="Sprite" parent="." index="1"]
+
+position = Vector2( 374, 7 )
+texture = ExtResource( 1 )
+
+[node name="ground_cake_broken" type="Sprite" parent="." index="2"]
+
+position = Vector2( 899, 283 )
+texture = ExtResource( 3 )
 region_rect = Rect2( 256, 0, 0, 0 )
 
-[node name="ground_cake_small" type="Sprite" parent="." index="2"]
+[node name="ground_cake_small" type="Sprite" parent="." index="3"]
 
-texture = ExtResource( 3 )
-
-[node name="ground_cake_small_broken" type="Sprite" parent="." index="3"]
-
+position = Vector2( 731, -16 )
 texture = ExtResource( 4 )
+
+[node name="ground_cake_small_broken" type="Sprite" parent="." index="4"]
+
+position = Vector2( 1082, -17 )
+texture = ExtResource( 5 )
 
 
