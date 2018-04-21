@@ -1,0 +1,371 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://lololol.jpg" type="Texture" id=1]
+[ext_resource path="res://speed.svg" type="Texture" id=2]
+[ext_resource path="res://speedx.jpg" type="Texture" id=3]
+[ext_resource path="res://Divine_Shield.png" type="Texture" id=4]
+[ext_resource path="res://invinc.png" type="Texture" id=5]
+[ext_resource path="res://fall.png" type="Texture" id=6]
+[ext_resource path="res://parry.png" type="Texture" id=7]
+[ext_resource path="res://freeze.png" type="Texture" id=8]
+[ext_resource path="res://icon.png" type="Texture" id=9]
+
+[node name="Node" type="Node" index="0"]
+
+[node name="johnnyBoy" type="KinematicBody2D" parent="." index="0"]
+
+position = Vector2( 48.5635, 467.491 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="johnnyBoy" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -46.0627, -56.7557, 42.5258, -56.7557, 40.3911, 54.2466, -44.9954, 55.314, -45.529, -51.9528 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="johnnyBoy" index="1"]
+
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="powerUps" type="Node2D" parent="." index="1"]
+
+editor/display_folded = true
+position = Vector2( 58.7032, -120.075 )
+
+[node name="speed" type="RigidBody2D" parent="powerUps" index="0"]
+
+position = Vector2( 431.234, 269.521 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="powerUps/speed" index="0"]
+
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="powerUps/speed" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -44.251, 18.9985, -44.6546, -10.4662, 16.6965, -8.85165, 15.4856, 19.4021 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="speedX" type="RigidBody2D" parent="powerUps" index="1"]
+
+position = Vector2( 496.421, 269.782 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="powerUps/speedX" index="0"]
+
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="powerUps/speedX" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -24.273, 26.407, -24.273, -23.2389, 24.162, -23.2389, 24.162, 26.407 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="shield" type="RigidBody2D" parent="powerUps" index="2"]
+
+position = Vector2( 553.186, 269.633 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="powerUps/shield" index="0"]
+
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="powerUps/shield" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -18.8797, 20.0976, -17.6688, -22.2831, 15.4285, -21.0722, 15.8321, 23.7302 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="invincibility" type="RigidBody2D" parent="powerUps" index="3"]
+
+position = Vector2( 610.573, 267.597 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="powerUps/invincibility" index="0"]
+
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="powerUps/invincibility" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -24.6025, 24.9595, -24.6025, -12.5777, 34.3268, -12.1741, 35.9413, 24.9595 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="fallspeed" type="RigidBody2D" parent="powerUps" index="4"]
+
+position = Vector2( 682.111, 268.654 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="powerUps/fallspeed" index="0"]
+
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="powerUps/fallspeed" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -18.2402, 26.3241, -17.433, -24.5327, 20.1042, -23.7254, 20.1042, 27.9386 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="parry" type="RigidBody2D" parent="powerUps" index="5"]
+
+position = Vector2( 749.271, 271.336 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="powerUps/parry" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -24.8569, 22.8348, -23.6461, -21.564, 24.3854, -21.1604, 23.5781, 24.4493 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="powerUps/parry" index="1"]
+
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="freeze" type="RigidBody2D" parent="powerUps" index="6"]
+
+position = Vector2( 832.606, 272.94 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="powerUps/freeze" index="0"]
+
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 8 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="powerUps/freeze" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -32.3098, 26.8816, -32.7134, -26.8006, 35.4993, -27.2043, 34.2885, 27.2852 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Ground" type="StaticBody2D" parent="." index="2"]
+
+position = Vector2( 543.271, 571.022 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Pickable", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Ground" index="0"]
+
+scale = Vector2( 20, 1 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( 644.5, 36.1021, 640.765, -35.4091, -545.573, -37.0101, -543.972, 48.91, 645.568, 40.3713 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+
