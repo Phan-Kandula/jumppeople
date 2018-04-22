@@ -4,22 +4,22 @@
 [ext_resource path="res://scene.gd" type="Script" id=2]
 [ext_resource path="res://Zombie/up0.png" type="Texture" id=3]
 [ext_resource path="res://Zombie/up1.png" type="Texture" id=4]
-[ext_resource path="res://Zombie/move0.png" type="Texture" id=5]
-[ext_resource path="res://Zombie/move1.png" type="Texture" id=6]
-[ext_resource path="res://Zombie/up2.png" type="Texture" id=7]
-[ext_resource path="res://Zombie/up3.png" type="Texture" id=8]
-[ext_resource path="res://Zombie/taunt0.png" type="Texture" id=9]
-[ext_resource path="res://Zombie/taunt1.png" type="Texture" id=10]
-[ext_resource path="res://Zombie/death0.png" type="Texture" id=11]
-[ext_resource path="res://icon.png" type="Texture" id=12]
+[ext_resource path="res://Zombie/death0.png" type="Texture" id=5]
+[ext_resource path="res://icon.png" type="Texture" id=6]
+[ext_resource path="res://Zombie/taunt0.png" type="Texture" id=7]
+[ext_resource path="res://Zombie/taunt1.png" type="Texture" id=8]
+[ext_resource path="res://Zombie/up2.png" type="Texture" id=9]
+[ext_resource path="res://Zombie/up3.png" type="Texture" id=10]
+[ext_resource path="res://Zombie/move0.png" type="Texture" id=11]
+[ext_resource path="res://Zombie/move1.png" type="Texture" id=12]
 [ext_resource path="res://player_human.gd" type="Script" id=13]
 [ext_resource path="res://Player/Poses/player_idle.png" type="Texture" id=14]
 [ext_resource path="res://Player/Poses/player_jump.png" type="Texture" id=15]
-[ext_resource path="res://Player/Poses/player_walk2.png" type="Texture" id=16]
-[ext_resource path="res://Player/Poses/player_walk1.png" type="Texture" id=17]
-[ext_resource path="res://Player/Poses/player_fall.png" type="Texture" id=18]
-[ext_resource path="res://Player/Poses/player_duck.png" type="Texture" id=19]
-[ext_resource path="res://Player/Poses/player_hurt.png" type="Texture" id=20]
+[ext_resource path="res://Player/Poses/player_hurt.png" type="Texture" id=16]
+[ext_resource path="res://Player/Poses/player_fall.png" type="Texture" id=17]
+[ext_resource path="res://Player/Poses/player_duck.png" type="Texture" id=18]
+[ext_resource path="res://Player/Poses/player_walk2.png" type="Texture" id=19]
+[ext_resource path="res://Player/Poses/player_walk1.png" type="Texture" id=20]
 [ext_resource path="res://Map 1.tscn" type="PackedScene" id=21]
 [ext_resource path="res://speed.svg" type="Texture" id=22]
 [ext_resource path="res://speedx.jpg" type="Texture" id=23]
@@ -224,24 +224,24 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "move",
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), null, ExtResource( 5 ), ExtResource( 6 ), null, ExtResource( 5 ), ExtResource( 6 ), null, ExtResource( 5 ), ExtResource( 6 ), null, ExtResource( 5 ), ExtResource( 6 ), null, ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": false,
+"name": "dead",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ) ],
-"loop": false,
-"name": "fall_down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "taunt",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ), null, ExtResource( 11 ), ExtResource( 12 ), null, ExtResource( 11 ), ExtResource( 12 ), null, ExtResource( 11 ), ExtResource( 12 ), null, ExtResource( 11 ), ExtResource( 12 ), null, ExtResource( 11 ), ExtResource( 12 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": false,
-"name": "dead",
+"name": "fall_down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "move",
 "speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
@@ -433,23 +433,23 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ) ],
+"frames": [ ExtResource( 16 ), null, ExtResource( 16 ), null, ExtResource( 16 ), null, ExtResource( 16 ), null, ExtResource( 16 ), null, ExtResource( 16 ) ],
 "loop": true,
-"name": "move",
+"name": "dead",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 18 ), ExtResource( 19 ) ],
+"frames": [ ExtResource( 17 ), ExtResource( 18 ) ],
 "loop": false,
 "name": "fall_down",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 20 ), null, ExtResource( 20 ), null, ExtResource( 20 ), null, ExtResource( 20 ), null, ExtResource( 20 ), null, ExtResource( 20 ) ],
+"frames": [ ExtResource( 19 ), ExtResource( 20 ) ],
 "loop": true,
-"name": "dead",
+"name": "move",
 "speed": 5.0
 } ]
 
-[node name="world" type="Node" index="0"]
+[node name="world" type="Node"]
 
 script = ExtResource( 1 )
 
