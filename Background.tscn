@@ -1,8 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://PlatformAndBackgroundTiles.tres" type="TileSet" id=1]
+[ext_resource path="res://CloudParticle2.png" type="Texture" id=2]
 
-[sub_resource type="ParticlesMaterial" id=1]
+[sub_resource type="ShaderMaterial" id=1]
+
+render_priority = 0
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="ParticlesMaterial" id=2]
 
 render_priority = 0
 trail_divisor = 1
@@ -68,14 +74,15 @@ __meta__ = {
 
 [node name="Particles2D" type="Particles2D" parent="." index="1"]
 
+material = SubResource( 1 )
 position = Vector2( 1114.82, 47.5575 )
 rotation = 1.5708
 emitting = true
 amount = 8
-lifetime = 1.0
+lifetime = 6.0
 one_shot = false
 preprocess = 0.0
-speed_scale = 1.0
+speed_scale = 0.25
 explosiveness = 0.0
 randomness = 0.0
 fixed_fps = 0
@@ -83,23 +90,27 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 1 )
-texture = null
+process_material = SubResource( 2 )
+texture = ExtResource( 2 )
 normal_map = null
 h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Transform", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Particles2D2" type="Particles2D" parent="." index="2"]
 
+material = SubResource( 1 )
 position = Vector2( 1114.82, 122.291 )
 rotation = 1.5708
 emitting = true
 amount = 8
-lifetime = 1.0
+lifetime = 6.0
 one_shot = false
 preprocess = 0.0
-speed_scale = 1.0
+speed_scale = 0.25
 explosiveness = 0.0
 randomness = 0.0
 fixed_fps = 0
@@ -107,23 +118,27 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 1 )
-texture = null
+process_material = SubResource( 2 )
+texture = ExtResource( 2 )
 normal_map = null
 h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Transform", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Particles2D3" type="Particles2D" parent="." index="3"]
 
+material = SubResource( 1 )
 position = Vector2( 1114.82, 194.554 )
 rotation = 1.5708
 emitting = true
 amount = 8
-lifetime = 1.0
+lifetime = 6.0
 one_shot = false
 preprocess = 0.0
-speed_scale = 1.0
+speed_scale = 0.25
 explosiveness = 0.0
 randomness = 0.0
 fixed_fps = 0
@@ -131,23 +146,27 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 1 )
-texture = null
+process_material = SubResource( 2 )
+texture = ExtResource( 2 )
 normal_map = null
 h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Transform", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Particles2D4" type="Particles2D" parent="." index="4"]
 
+material = SubResource( 1 )
 position = Vector2( 1114.82, 268.669 )
 rotation = 1.5708
 emitting = true
 amount = 8
-lifetime = 1.0
+lifetime = 6.0
 one_shot = false
 preprocess = 0.0
-speed_scale = 1.0
+speed_scale = 0.25
 explosiveness = 0.0
 randomness = 0.0
 fixed_fps = 0
@@ -155,23 +174,27 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 1 )
-texture = null
+process_material = SubResource( 2 )
+texture = ExtResource( 2 )
 normal_map = null
 h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Transform", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Particles2D5" type="Particles2D" parent="." index="5"]
 
+material = SubResource( 1 )
 position = Vector2( 1114.82, 344.02 )
 rotation = 1.5708
 emitting = true
 amount = 8
-lifetime = 1.0
+lifetime = 6.0
 one_shot = false
 preprocess = 0.0
-speed_scale = 1.0
+speed_scale = 0.25
 explosiveness = 0.0
 randomness = 0.0
 fixed_fps = 0
@@ -179,23 +202,27 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 1 )
-texture = null
+process_material = SubResource( 2 )
+texture = ExtResource( 2 )
 normal_map = null
 h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Transform", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Particles2D6" type="Particles2D" parent="." index="6"]
 
+material = SubResource( 1 )
 position = Vector2( 1114.82, 418.753 )
 rotation = 1.5708
 emitting = true
 amount = 8
-lifetime = 1.0
+lifetime = 6.0
 one_shot = false
 preprocess = 0.0
-speed_scale = 1.0
+speed_scale = 0.25
 explosiveness = 0.0
 randomness = 0.0
 fixed_fps = 0
@@ -203,23 +230,27 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 1 )
-texture = null
+process_material = SubResource( 2 )
+texture = ExtResource( 2 )
 normal_map = null
 h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Transform", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Particles2D7" type="Particles2D" parent="." index="7"]
 
+material = SubResource( 1 )
 position = Vector2( 1114.82, 491.016 )
 rotation = 1.5708
 emitting = true
 amount = 8
-lifetime = 1.0
+lifetime = 6.0
 one_shot = false
 preprocess = 0.0
-speed_scale = 1.0
+speed_scale = 0.25
 explosiveness = 0.0
 randomness = 0.0
 fixed_fps = 0
@@ -227,23 +258,27 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 1 )
-texture = null
+process_material = SubResource( 2 )
+texture = ExtResource( 2 )
 normal_map = null
 h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Transform", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Particles2D8" type="Particles2D" parent="." index="8"]
 
+material = SubResource( 1 )
 position = Vector2( 1114.82, 562.044 )
 rotation = 1.5708
 emitting = true
 amount = 8
-lifetime = 1.0
+lifetime = 6.0
 one_shot = false
 preprocess = 0.0
-speed_scale = 1.0
+speed_scale = 0.25
 explosiveness = 0.0
 randomness = 0.0
 fixed_fps = 0
@@ -251,11 +286,14 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 1 )
-texture = null
+process_material = SubResource( 2 )
+texture = ExtResource( 2 )
 normal_map = null
 h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Transform", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 
