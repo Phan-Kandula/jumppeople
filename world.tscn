@@ -138,6 +138,6 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Map 1" type="Node" parent="." index="2" instance=ExtResource( 20 )]
+[node name="Map 1" parent="." index="2" instance=ExtResource( 20 )]
 
 
