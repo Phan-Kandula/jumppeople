@@ -1,62 +1,429 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://world.gd" type="Script" id=1]
 [ext_resource path="res://scene.gd" type="Script" id=2]
-[ext_resource path="res://KinematicBody2D.gd" type="Script" id=3]
-[ext_resource path="res://Zombie/up0.png" type="Texture" id=4]
-[ext_resource path="res://Zombie/up1.png" type="Texture" id=5]
-[ext_resource path="res://Zombie/up2.png" type="Texture" id=6]
-[ext_resource path="res://Zombie/up3.png" type="Texture" id=7]
-[ext_resource path="res://Zombie/move0.png" type="Texture" id=8]
-[ext_resource path="res://Zombie/move1.png" type="Texture" id=9]
-[ext_resource path="res://Zombie/taunt0.png" type="Texture" id=10]
-[ext_resource path="res://Zombie/taunt1.png" type="Texture" id=11]
-[ext_resource path="res://Zombie/death0.png" type="Texture" id=12]
+[ext_resource path="res://Zombie/up0.png" type="Texture" id=3]
+[ext_resource path="res://Zombie/up1.png" type="Texture" id=4]
+[ext_resource path="res://Zombie/move0.png" type="Texture" id=5]
+[ext_resource path="res://Zombie/move1.png" type="Texture" id=6]
+[ext_resource path="res://Zombie/death0.png" type="Texture" id=7]
+[ext_resource path="res://icon.png" type="Texture" id=8]
+[ext_resource path="res://Zombie/taunt0.png" type="Texture" id=9]
+[ext_resource path="res://Zombie/taunt1.png" type="Texture" id=10]
+[ext_resource path="res://Zombie/up2.png" type="Texture" id=11]
+[ext_resource path="res://Zombie/up3.png" type="Texture" id=12]
 [ext_resource path="res://player_human.gd" type="Script" id=13]
 [ext_resource path="res://Player/Poses/player_idle.png" type="Texture" id=14]
 [ext_resource path="res://Player/Poses/player_jump.png" type="Texture" id=15]
-[ext_resource path="res://Player/Poses/player_fall.png" type="Texture" id=16]
-[ext_resource path="res://Player/Poses/player_duck.png" type="Texture" id=17]
-[ext_resource path="res://Player/Poses/player_walk2.png" type="Texture" id=18]
-[ext_resource path="res://Player/Poses/player_walk1.png" type="Texture" id=19]
-[ext_resource path="res://Map 1.tscn" type="PackedScene" id=20]
-[ext_resource path="res://speed.svg" type="Texture" id=21]
-[ext_resource path="res://speedx.jpg" type="Texture" id=22]
-[ext_resource path="res://Divine_Shield.png" type="Texture" id=23]
-[ext_resource path="res://invinc.png" type="Texture" id=24]
-[ext_resource path="res://fall.png" type="Texture" id=25]
-[ext_resource path="res://parry.png" type="Texture" id=26]
-[ext_resource path="res://freeze.png" type="Texture" id=27]
+[ext_resource path="res://Player/Poses/player_walk2.png" type="Texture" id=16]
+[ext_resource path="res://Player/Poses/player_walk1.png" type="Texture" id=17]
+[ext_resource path="res://Player/Poses/player_hurt.png" type="Texture" id=18]
+[ext_resource path="res://Player/Poses/player_fall.png" type="Texture" id=19]
+[ext_resource path="res://Player/Poses/player_duck.png" type="Texture" id=20]
+[ext_resource path="res://Map 1.tscn" type="PackedScene" id=21]
+[ext_resource path="res://speed.svg" type="Texture" id=22]
+[ext_resource path="res://speedx.jpg" type="Texture" id=23]
+[ext_resource path="res://Divine_Shield.png" type="Texture" id=24]
+[ext_resource path="res://invinc.png" type="Texture" id=25]
+[ext_resource path="res://fall.png" type="Texture" id=26]
+[ext_resource path="res://parry.png" type="Texture" id=27]
+[ext_resource path="res://freeze.png" type="Texture" id=28]
+[ext_resource path="res://Main Menu/MainMenu.gd" type="Script" id=29]
+[ext_resource path="res://lololol.jpg" type="Texture" id=30]
+[ext_resource path="res://Main Menu/Main Menu Assets/Jumpman.png" type="Texture" id=31]
+[ext_resource path="res://Main Menu/Main Menu Assets/Start.png" type="Texture" id=32]
+[ext_resource path="res://Main Menu/Main Menu Assets/StartHover.png" type="Texture" id=33]
+[ext_resource path="res://Main Menu/Main Menu Assets/Controls.png" type="Texture" id=34]
+[ext_resource path="res://Main Menu/Main Menu Assets/ControlsHover.png" type="Texture" id=35]
+[ext_resource path="res://Main Menu/Main Menu Assets/How To Play.png" type="Texture" id=36]
+[ext_resource path="res://Main Menu/Main Menu Assets/HowToPlayHover.png" type="Texture" id=37]
+
+[sub_resource type="GDScript" id=3]
+
+script/source = "extends KinematicBody2D
+
+const UP = Vector2(0,-1)
+const GRAVITY = 20
+var grav = 1
+const ACCELERATION = 50
+const SPEED = 200
+var speedo = 1
+var pastspeedo = speedo
+const MAXSPEED = 400
+const JUMP_HEIGHT = -550
+var can_jump = false
+var time
+var health
+
+var res
+var motion = Vector2()
+var right = KEY_D
+var left = KEY_A
+var up = KEY_W
+var down = KEY_S
+var parry = KEY_SPACE
+var special
+var speedtime = -1000
+var shieldtime = 1000
+var invincibletime = 1000
+var canFastFall
+var canParry
+var invincible
+var is_dead
+
+func _ready(player_1):
+	time = 0
+	health = 3
+	canFastFall = false
+	canParry = false
+	invincible = false
+	res = get_viewport_rect().size
+	set_physics_process(true)
+	#position.x = 1 *res.x / 3
+	#position.y = 2 *res.y / 3
+
+	if player_1:
+		right = \"ui_right\"
+		left = \"ui_left\"
+		up = \"ui_up\"
+		down = \"ui_down\"
+		parry = \"ui_p\"
+	else:
+		right = \"ui_d\"
+		left = \"ui_a\"
+		up = \"ui_w\"
+		down = \"ui_s\"
+		parry = \"ui_space\"
+	pass
+	
+#get_tree().get_root().get_node(\"scene_main_node/node_wanted\")	
+
+func _physics_process(delta):
+	time+=delta
+	motion.x = 0
+	if Input.is_action_pressed(right):
+#		motion.x += ACCELERATION
+#		if motion.x > MAXSPEED:
+		motion.x = SPEED * speedo
+	if Input.is_action_pressed(left):
+#		motion.x -= ACCELERATION
+#		if -motion.x > MAXSPEED:
+		motion.x = -SPEED * speedo
+	#if is_on_floor():
+	if Input.is_action_just_pressed(up) and (is_on_floor() or can_jump):
+		motion.y = JUMP_HEIGHT
+		$AnimatedSprite.play(\"up\")
+		can_jump = false
+	if canFastFall and Input.is_action_just_pressed(down):
+		grav = 50
+		pass
+	motion.y += GRAVITY * grav
+	grav = 1
+	if canParry and Input.is_action_just_pressed(parry):
+		#parry	
+		pass
+		
+	position.x = clamp(position.x, 0, res.x)
+	position.y = clamp(position.y, 0, res.y)
+	if motion.length() >= 1:
+		$AnimatedSprite.play()
+	else:
+		$AnimatedSprite.stop()
+
+	if motion.y < 0:
+		$AnimatedSprite.animation = \"up\"
+	if motion.x != 0:
+		$AnimatedSprite.animation = \"move\"
+		$AnimatedSprite.flip_h = motion.x < 0
+	if motion.y > 0:
+		$AnimatedSprite.animation = \"fall_down\"
+		
+	if position.x == 0:
+		position.x = res.x - 1
+	if position.y == 0:
+		position.y = res.y - 50
+		can_jump = true
+	if position.x == res.x:
+		position.x = 1
+	if position.y == res.y:
+		position.y = 50
+		can_jump = false
+	
+	motion = move_and_slide(motion, UP)
+	
+	if (speedtime + 5.0) >= time:
+		speedo = 4
+	else:
+		speedo = pastspeedo
+	if (shieldtime + 30.0) <= time:
+		health -= 1
+		shieldtime = 10000
+		print(health)
+	if(invincibletime + 2) <= time:
+		invincible = false
+		
+		
+	var collision_info = move_and_collide(SPEED*delta*motion.normalized())
+	if collision_info:
+			var bodyHit = (collision_info.collider)
+			if bodyHit.name == \"speed\":
+				bodyHit.queue_free()
+				if(SPEED * speedo <= MAXSPEED):
+					speedo += .25
+			elif bodyHit.name == \"speedX\":
+				pastspeedo = speedo
+				speedtime = time
+				bodyHit.queue_free()
+			elif bodyHit.name == \"shield\":
+				shieldtime = time
+				health+=1
+				print(health)
+				bodyHit.queue_free()
+			elif bodyHit.name == \"invincibility\":
+				bodyHit.queue_free()
+			elif bodyHit.name == \"fallspeed\":
+				canFastFall = true
+				bodyHit.queue_free()
+			elif bodyHit.name == \"parry\":
+				canParry = true
+				bodyHit.queue_free()
+			elif bodyHit.name == \"freeze\":
+				bodyHit.queue_free()
+			elif bodyHit.name == \"KinematicBody2D\":
+				if(!invincible):
+					if(bodyHit.position.y > position.y):
+						health -= 1
+					if(bodyHit.position.y < position.y):
+						bodyHit.health -= 1
+					invincible = true
+					invincibletime = time
+				print(\"Human Health \", health)
+				print(\"Zombie Health \", bodyHit.health)
+				
+			elif bodyHit.name == \"zombie\":
+				if(!invincible):
+					if(bodyHit.position.y > position.y):
+						health -= 1
+					if(bodyHit.position.y < position.y):
+						bodyHit.health -= 1
+					invincible = true
+					invincibletime = time
+				print(\"Zombie \", health)
+				print(\"Human Health \", bodyHit.health)
+				
+	
+
+
+"
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": false,
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": false,
-"name": "fall_down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "move",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), null, ExtResource( 7 ), ExtResource( 8 ), null, ExtResource( 7 ), ExtResource( 8 ), null, ExtResource( 7 ), ExtResource( 8 ), null, ExtResource( 7 ), ExtResource( 8 ), null, ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "dead",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "taunt",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "death",
+"frames": [ ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": false,
+"name": "fall_down",
 "speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
+
+[sub_resource type="GDScript" id=4]
+
+script/source = "extends KinematicBody2D
+
+const UP = Vector2(0,-1)
+const GRAVITY = 20
+var grav = 1
+const ACCELERATION = 50
+const SPEED = 200
+var speedo = 1
+var pastspeedo = speedo
+const MAXSPEED = 400
+const JUMP_HEIGHT = -550
+var can_jump = false
+var time
+var health
+
+var res
+var motion = Vector2()
+var right = KEY_D
+var left = KEY_A
+var up = KEY_W
+var down = KEY_S
+var parry = KEY_SPACE
+var special
+var speedtime = -1000
+var shieldtime = 1000
+var invincibletime = 1000
+var canFastFall
+var canParry
+var invincible
+var is_dead
+
+func _ready(player_1):
+	time = 0
+	health = 3
+	canFastFall = false
+	canParry = false
+	invincible = false
+	res = get_viewport_rect().size
+	set_physics_process(true)
+	#position.x = 1 *res.x / 3
+	#position.y = 2 *res.y / 3
+
+	if player_1:
+		right = \"ui_right\"
+		left = \"ui_left\"
+		up = \"ui_up\"
+		down = \"ui_down\"
+		parry = \"ui_p\"
+	else:
+		right = \"ui_d\"
+		left = \"ui_a\"
+		up = \"ui_w\"
+		down = \"ui_s\"
+		parry = \"ui_space\"
+	pass
+	
+#get_tree().get_root().get_node(\"scene_main_node/node_wanted\")	
+
+func _physics_process(delta):
+	time+=delta
+	motion.x = 0
+	if Input.is_action_pressed(right):
+#		motion.x += ACCELERATION
+#		if motion.x > MAXSPEED:
+		motion.x = SPEED * speedo
+	if Input.is_action_pressed(left):
+#		motion.x -= ACCELERATION
+#		if -motion.x > MAXSPEED:
+		motion.x = -SPEED * speedo
+	#if is_on_floor():
+	if Input.is_action_just_pressed(up) and (is_on_floor() or can_jump):
+		motion.y = JUMP_HEIGHT
+		$AnimatedSprite.play(\"up\")
+		can_jump = false
+	if canFastFall and Input.is_action_just_pressed(down):
+		grav = 50
+		pass
+	motion.y += GRAVITY * grav
+	grav = 1
+	if canParry and Input.is_action_just_pressed(parry):
+		#parry	
+		pass
+		
+	position.x = clamp(position.x, 0, res.x)
+	position.y = clamp(position.y, 0, res.y)
+	if motion.length() >= 1:
+		$AnimatedSprite.play()
+	else:
+		$AnimatedSprite.stop()
+
+	if motion.y < 0:
+		$AnimatedSprite.animation = \"up\"
+	if motion.x != 0:
+		$AnimatedSprite.animation = \"move\"
+		$AnimatedSprite.flip_h = motion.x < 0
+	if motion.y > 0:
+		$AnimatedSprite.animation = \"fall_down\"
+		
+	if position.x == 0:
+		position.x = res.x - 1
+	if position.y == 0:
+		position.y = res.y - 50
+		can_jump = true
+	if position.x == res.x:
+		position.x = 1
+	if position.y == res.y:
+		position.y = 50
+		can_jump = false
+	
+	motion = move_and_slide(motion, UP)
+	
+	if (speedtime + 5.0) >= time:
+		speedo = 4
+	else:
+		speedo = pastspeedo
+	if (shieldtime + 30.0) <= time:
+		health -= 1
+		shieldtime = 10000
+		print(health)
+	if(invincibletime + 2) <= time:
+		invincible = false
+		
+		
+	var collision_info = move_and_collide(SPEED*delta*motion.normalized())
+	if collision_info:
+			var bodyHit = (collision_info.collider)
+			if bodyHit.name == \"speed\":
+				bodyHit.queue_free()
+				if(SPEED * speedo <= MAXSPEED):
+					speedo += .25
+			elif bodyHit.name == \"speedX\":
+				pastspeedo = speedo
+				speedtime = time
+				bodyHit.queue_free()
+			elif bodyHit.name == \"shield\":
+				shieldtime = time
+				health+=1
+				print(health)
+				bodyHit.queue_free()
+			elif bodyHit.name == \"invincibility\":
+				bodyHit.queue_free()
+			elif bodyHit.name == \"fallspeed\":
+				canFastFall = true
+				bodyHit.queue_free()
+			elif bodyHit.name == \"parry\":
+				canParry = true
+				bodyHit.queue_free()
+			elif bodyHit.name == \"freeze\":
+				bodyHit.queue_free()
+			elif bodyHit.name == \"KinematicBody2D\":
+				if(!invincible):
+					if(bodyHit.position.y > position.y):
+						health -= 1
+					if(bodyHit.position.y < position.y):
+						bodyHit.health -= 1
+					invincible = true
+					invincibletime = time
+				print(\"Human Health \", health)
+				print(\"Zombie Health \", bodyHit.health)
+				
+			elif bodyHit.name == \"zombie\":
+				if(!invincible):
+					if(bodyHit.position.y > position.y):
+						health -= 1
+					if(bodyHit.position.y < position.y):
+						bodyHit.health -= 1
+					invincible = true
+					invincibletime = time
+				print(\"Zombie \", health)
+				print(\"Human Health \", bodyHit.health)
+				
+	
+
+
+
+"
 
 [sub_resource type="SpriteFrames" id=2]
 
@@ -67,13 +434,18 @@ animations = [ {
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 16 ), ExtResource( 17 ) ],
-"loop": false,
-"name": "fall_down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 18 ), ExtResource( 19 ) ],
 "loop": true,
 "name": "move",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ), null, ExtResource( 18 ), null, ExtResource( 18 ), null, ExtResource( 18 ), null, ExtResource( 18 ), null, ExtResource( 18 ) ],
+"loop": true,
+"name": "dead",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 20 ) ],
+"loop": false,
+"name": "fall_down",
 "speed": 5.0
 } ]
 
@@ -87,19 +459,22 @@ script = ExtResource( 2 )
 
 [node name="zombie" type="KinematicBody2D" parent="Player_zombie" index="0"]
 
-position = Vector2( 356.611, 460.347 )
+position = Vector2( 352.162, 331.317 )
+rotation = 0.0136532
 scale = Vector2( 0.3, 0.3 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.001
-script = ExtResource( 3 )
-_sections_unfolded = [ "Collision", "Transform", "Z Index", "collision" ]
+script = SubResource( 3 )
+_sections_unfolded = [ "Collision", "Pause", "Transform", "Z Index", "collision" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player_zombie/zombie" index="0"]
 
 frames = SubResource( 1 )
 animation = "up"
+frame = 1
+playing = true
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -117,17 +492,17 @@ __meta__ = {
 
 script = ExtResource( 13 )
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="player_human" index="0"]
+[node name="human" type="KinematicBody2D" parent="player_human" index="0"]
 
-position = Vector2( 355.896, 405.675 )
+position = Vector2( 668.832, 331.52 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.001
-script = ExtResource( 3 )
+script = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="player_human/KinematicBody2D" index="0"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="player_human/human" index="0"]
 
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 2 )
@@ -137,7 +512,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="player_human/KinematicBody2D" index="1"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="player_human/human" index="1"]
 
 build_mode = 0
 polygon = PoolVector2Array( -10.6077, -13.3015, 11.4995, -13.0342, 11.4995, 18.2747, -10.3785, 18.1602 )
@@ -145,15 +520,16 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Map 1" parent="." index="2" instance=ExtResource( 20 )]
+[node name="Map 1" parent="." index="2" instance=ExtResource( 21 )]
 
 [node name="powerUps" type="Node2D" parent="." index="3"]
 
+editor/display_folded = true
 position = Vector2( -148.556, -212.008 )
 
 [node name="speed" type="RigidBody2D" parent="powerUps" index="0"]
 
-position = Vector2( 415.825, 273.463 )
+position = Vector2( 253.796, 294.968 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -179,7 +555,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="powerUps/speed" index="0"]
 
 scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 21 )
+texture = ExtResource( 22 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -195,7 +571,7 @@ __meta__ = {
 
 [node name="speedX" type="RigidBody2D" parent="powerUps" index="1"]
 
-position = Vector2( 495.704, 281.369 )
+position = Vector2( 397.448, 298.796 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -221,7 +597,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="powerUps/speedX" index="0"]
 
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 22 )
+texture = ExtResource( 23 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -263,7 +639,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="powerUps/shield" index="0"]
 
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 23 )
+texture = ExtResource( 24 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -305,7 +681,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="powerUps/invincibility" index="0"]
 
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 24 )
+texture = ExtResource( 25 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -347,7 +723,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="powerUps/fallspeed" index="0"]
 
 scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 25 )
+texture = ExtResource( 26 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -360,7 +736,7 @@ polygon = PoolVector2Array( -31.8904, -33.5099, 28.1564, -33.1922, 27.8387, 32.7
 
 [node name="parry" type="RigidBody2D" parent="powerUps" index="5"]
 
-position = Vector2( 792.392, 307.052 )
+position = Vector2( 961.095, 303.715 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -386,7 +762,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="powerUps/parry" index="0"]
 
 scale = Vector2( 2, 2 )
-texture = ExtResource( 26 )
+texture = ExtResource( 27 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -399,7 +775,7 @@ polygon = PoolVector2Array( -32.5213, -31.6161, 32.1324, -29.7099, 32.9267, 26.0
 
 [node name="freeze" type="RigidBody2D" parent="powerUps" index="6"]
 
-position = Vector2( 874.652, 289.902 )
+position = Vector2( 1071.91, 296.576 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -425,7 +801,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="powerUps/freeze" index="0"]
 
 scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 27 )
+texture = ExtResource( 28 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -438,5 +814,225 @@ polygon = PoolVector2Array( -37.7371, -37.1826, 41.3724, -37.1826, 30.8881, 35.5
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="MainMenu" type="MarginContainer" parent="." index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1105.0
+margin_bottom = 600.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/margin_right = 120
+custom_constants/margin_top = 80
+custom_constants/margin_left = 120
+custom_constants/margin_bottom = 80
+script = ExtResource( 29 )
+_sections_unfolded = [ "Visibility", "custom_constants" ]
+
+[node name="Sprite" type="Sprite" parent="MainMenu" index="0"]
+
+position = Vector2( 60, -380 )
+texture = ExtResource( 30 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 120.0
+margin_top = 80.0
+margin_right = 985.0
+margin_bottom = 520.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Game Title" type="TextureRect" parent="MainMenu/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 865.0
+margin_bottom = 120.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 31 )
+stretch_mode = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/VBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 124.0
+margin_right = 865.0
+margin_bottom = 382.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/VBoxContainer/HBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 270.0
+margin_bottom = 258.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Start" type="TextureButton" parent="MainMenu/VBoxContainer/HBoxContainer/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 270.0
+margin_bottom = 44.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 32 )
+texture_hover = ExtResource( 33 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="Controls" type="TextureButton" parent="MainMenu/VBoxContainer/HBoxContainer/VBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 48.0
+margin_right = 270.0
+margin_bottom = 92.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 34 )
+texture_hover = ExtResource( 35 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="HowToPlay" type="TextureButton" parent="MainMenu/VBoxContainer/HBoxContainer/VBoxContainer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 96.0
+margin_right = 270.0
+margin_bottom = 140.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 36 )
+texture_hover = ExtResource( 37 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="CenterContainer" type="CenterContainer" parent="MainMenu/VBoxContainer/HBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 274.0
+margin_right = 865.0
+margin_bottom = 258.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+use_top_left = false
+_sections_unfolded = [ "Size Flags" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Main Image" type="TextureRect" parent="MainMenu/VBoxContainer/HBoxContainer/CenterContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 169.0
+margin_right = 421.0
+margin_bottom = 258.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 23 )
+stretch_mode = 0
+
+[connection signal="frame_changed" from="player_human/human/AnimatedSprite" to="player_human/human" method="_on_AnimatedSprite_frame_changed"]
+
+[connection signal="pressed" from="MainMenu/VBoxContainer/HBoxContainer/VBoxContainer/Start" to="MainMenu" method="_on_Start_pressed"]
+
+[connection signal="pressed" from="MainMenu/VBoxContainer/HBoxContainer/VBoxContainer/Start" to="." method="_on_Start_pressed"]
 
 
