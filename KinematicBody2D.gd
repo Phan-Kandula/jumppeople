@@ -12,11 +12,12 @@ var motion = Vector2()
 
 func _ready():
 	res = get_viewport_rect().size
+	set_physics_process(true)
 	pass
 	
 func _physics_process(delta):
 	motion.y += GRAVITY
-	
+	motion.x = 0
 	if Input.is_action_pressed("ui_right"):
 #		motion.x += ACCELERATION
 #		if motion.x > MAXSPEED:
