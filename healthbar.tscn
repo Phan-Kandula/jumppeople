@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://healthbar.gd" type="Script" id=1]
+[ext_resource path="res://pixel.png" type="Texture" id=2]
+[ext_resource path="res://health_bar_overlay.png" type="Texture" id=3]
+
+[node name="healthbar" type="Node" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="TextureRect2" type="TextureRect" parent="." index="0"]
+
+modulate = Color( 0.234659, 0.350531, 0.746094, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 41.0
+margin_top = 503.0
+margin_right = 330.0
+margin_bottom = 543.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 0
+_sections_unfolded = [ "Rect", "Visibility" ]
+
+[node name="health" type="TextureRect" parent="." index="1"]
+
+modulate = Color( 0.914062, 0.0516003, 0.0516003, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 41.0
+margin_top = 503.0
+margin_right = 330.0
+margin_bottom = 543.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 0
+_sections_unfolded = [ "Visibility" ]
+
+[node name="health_bar_overlay" type="Sprite" parent="." index="2"]
+
+position = Vector2( 188.951, 521.478 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 3 )
+
+
