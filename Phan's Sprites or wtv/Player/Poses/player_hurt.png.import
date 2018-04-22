@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/player_hurt.png-c46da09521fd24366e5970cc5e350ab7.stex"
+
+[deps]
+
+source_file="res://Phan's Sprites or wtv/Player/Poses/player_hurt.png"
+source_md5="e97748a2c87a4d720f1f5389cc88ee55"
+
+dest_files=[ "res://.import/player_hurt.png-c46da09521fd24366e5970cc5e350ab7.stex" ]
+dest_md5="990182e75d824723f672033756730100"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

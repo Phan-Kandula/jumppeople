@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/up3.png-fb4629fd0c072b4a51c84329d710293d.stex"
+
+[deps]
+
+source_file="res://Phan's Sprites or wtv/Zombie/up3.png"
+source_md5="1dd204356ec17ee2dcc59283198be165"
+
+dest_files=[ "res://.import/up3.png-fb4629fd0c072b4a51c84329d710293d.stex" ]
+dest_md5="526672691429360711bbdd2db9630854"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

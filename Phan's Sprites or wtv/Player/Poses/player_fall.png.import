@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/player_fall.png-e206fa5622c2b34c3b49376a84532241.stex"
+
+[deps]
+
+source_file="res://Phan's Sprites or wtv/Player/Poses/player_fall.png"
+source_md5="69da6f6c34abf30f3df22ece64c573d8"
+
+dest_files=[ "res://.import/player_fall.png-e206fa5622c2b34c3b49376a84532241.stex" ]
+dest_md5="bf33d6307fa0b38bb65853b5bdee351b"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

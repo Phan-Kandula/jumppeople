@@ -11,13 +11,9 @@ config_version=3
 [application]
 
 config/name="jumpman"
-
-run/main_scene="res://Player_zombie.tscn"
-
+run/main_scene="res://Menu.tscn"
 config/icon="res://icon.png"
 
 [display]
-
-window/size/fullscreen=false
 
 environment/default_environment="res://default_env.tres"

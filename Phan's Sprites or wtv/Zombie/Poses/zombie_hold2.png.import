@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/zombie_hold2.png-8ed06b086e08aa82f18aa448f3be318f.stex"
+
+[deps]
+
+source_file="res://Phan's Sprites or wtv/Zombie/Poses/zombie_hold2.png"
+source_md5="864b9436d09e0ab6f167293a918bf207"
+
+dest_files=[ "res://.import/zombie_hold2.png-8ed06b086e08aa82f18aa448f3be318f.stex" ]
+dest_md5="664c6b48be882de5f00ce40738fcbbfc"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

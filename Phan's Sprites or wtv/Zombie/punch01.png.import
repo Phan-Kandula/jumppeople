@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/punch01.png-71b42fe5f9ff74d299049b90c05cbbb3.stex"
+
+[deps]
+
+source_file="res://Phan's Sprites or wtv/Zombie/punch01.png"
+source_md5="2f06f06d948f236a509c67f3e30a4c9a"
+
+dest_files=[ "res://.import/punch01.png-71b42fe5f9ff74d299049b90c05cbbb3.stex" ]
+dest_md5="5ce18e98a1c22d6c0f3555ea8e58ebed"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

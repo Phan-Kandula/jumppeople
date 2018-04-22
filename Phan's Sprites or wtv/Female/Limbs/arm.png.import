@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/arm.png-a8a1663879dabd93fe51bbf552c3bbaa.stex"
+
+[deps]
+
+source_file="res://Phan's Sprites or wtv/Female/Limbs/arm.png"
+source_md5="ff3204beabbe73d0f398df5ffc188544"
+
+dest_files=[ "res://.import/arm.png-a8a1663879dabd93fe51bbf552c3bbaa.stex" ]
+dest_md5="4b4cd451edd510ae5c645ceca89aadd6"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
