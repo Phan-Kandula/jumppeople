@@ -6,11 +6,11 @@
 [ext_resource path="res://Zombie/up1.png" type="Texture" id=4]
 [ext_resource path="res://Zombie/up2.png" type="Texture" id=5]
 [ext_resource path="res://Zombie/up3.png" type="Texture" id=6]
-[ext_resource path="res://Zombie/taunt0.png" type="Texture" id=7]
-[ext_resource path="res://Zombie/taunt1.png" type="Texture" id=8]
-[ext_resource path="res://Zombie/death0.png" type="Texture" id=9]
-[ext_resource path="res://Zombie/move0.png" type="Texture" id=10]
-[ext_resource path="res://Zombie/move1.png" type="Texture" id=11]
+[ext_resource path="res://Zombie/move0.png" type="Texture" id=7]
+[ext_resource path="res://Zombie/move1.png" type="Texture" id=8]
+[ext_resource path="res://Zombie/taunt0.png" type="Texture" id=9]
+[ext_resource path="res://Zombie/taunt1.png" type="Texture" id=10]
+[ext_resource path="res://Zombie/death0.png" type="Texture" id=11]
 [ext_resource path="res://Map 1.tscn" type="PackedScene" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -28,22 +28,22 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
+"name": "move",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
 "name": "taunt",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ) ],
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "death",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
-"loop": true,
-"name": "move",
 "speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[node name="Player_zombie" type="Node" index="0"]
+[node name="Player_zombie" type="Node"]
 
 script = ExtResource( 1 )
 

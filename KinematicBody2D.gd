@@ -10,12 +10,22 @@ var can_jump = false
 
 var res
 var motion = Vector2()
-
-func _ready():
+var right
+var left
+var up
+var down
+var special
+func _ready(player_1):
 	res = get_viewport_rect().size
 	set_physics_process(true)
 	position.x = res.x / 3
 	position.y = res.y / 3
+	if player_1:
+		right = "ui_right"
+		left = "ui_left"
+		up = "ui_up"
+		down = "ui_down"
+		special = "ui_s"
 	pass
 	
 func _physics_process(delta):
