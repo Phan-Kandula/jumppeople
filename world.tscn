@@ -70,7 +70,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="world" type="Node" index="0"]
+[node name="world" type="Node"]
 
 script = ExtResource( 1 )
 

@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/StartHover.png-ad2773d6e61f12dae82a6ed3142c75a4.stex"
+
+[deps]
+
+source_file="res://Main Menu/Main Menu Assets/StartHover.png"
+source_md5="f49648a14a0567eaf95023f274d8d39f"
+
+dest_files=[ "res://.import/StartHover.png-ad2773d6e61f12dae82a6ed3142c75a4.stex" ]
+dest_md5="54bcdbca439a55d4472c5cd3899cf5ee"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
