@@ -428,7 +428,7 @@ func _physics_process(delta):
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 14 ), ExtResource( 15 ) ],
+"frames": [ ExtResource( 15 ), ExtResource( 16 ) ],
 "loop": true,
 "name": "up",
 "speed": 5.0
@@ -453,9 +453,11 @@ animations = [ {
 
 script = ExtResource( 1 )
 
-[node name="Player_zombie" type="Node" parent="." index="0"]
+[node name="Background" parent="." index="0" instance=ExtResource( 2 )]
 
-script = ExtResource( 2 )
+[node name="Player_zombie" type="Node" parent="." index="1"]
+
+script = ExtResource( 3 )
 
 [node name="zombie" type="KinematicBody2D" parent="Player_zombie" index="0"]
 
@@ -488,9 +490,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="player_human" type="Node" parent="." index="1"]
+[node name="player_human" type="Node" parent="." index="2"]
 
-script = ExtResource( 13 )
+script = ExtResource( 14 )
 
 [node name="human" type="KinematicBody2D" parent="player_human" index="0"]
 
@@ -500,7 +502,11 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.001
 script = SubResource( 4 )
+ masterClone
 _sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="player_human/human" index="0"]
 
@@ -522,7 +528,7 @@ __meta__ = {
 
 [node name="Map 1" parent="." index="2" instance=ExtResource( 21 )]
 
-[node name="powerUps" type="Node2D" parent="." index="3"]
+[node name="powerUps" type="Node2D" parent="." index="4"]
 
 editor/display_folded = true
 position = Vector2( -148.556, -212.008 )
