@@ -5,7 +5,7 @@ extends Node
 # var b = "textvar"
 
 func _ready():
-	$KinematicBody2D._ready(true)
+	$human._ready(true)
 	pass
 
 #func _process(delta):

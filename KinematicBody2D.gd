@@ -27,6 +27,7 @@ var invincibletime = 1000
 var canFastFall
 var canParry
 var invincible
+var is_dead
 
 func _ready(player_1):
 	time = 0
@@ -156,6 +157,7 @@ func _physics_process(delta):
 					invincibletime = time
 				print("Human Health ", health)
 				print("Zombie Health ", bodyHit.health)
+				dead()
 			elif bodyHit.name == "zombie":
 				if(!invincible):
 					if(bodyHit.position.y > position.y):
@@ -166,5 +168,5 @@ func _physics_process(delta):
 					invincibletime = time
 				print("Zombie ", health)
 				print("Human Health ", bodyHit.health)
-		
+				dead()
 	
