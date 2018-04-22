@@ -1,4 +1,33 @@
+[gd_scene load_steps=30 format=2]
 [gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://world.gd" type="Script" id=1]
+[ext_resource path="res://scene.gd" type="Script" id=2]
+[ext_resource path="res://KinematicBody2D.gd" type="Script" id=3]
+[ext_resource path="res://Zombie/up0.png" type="Texture" id=4]
+[ext_resource path="res://Zombie/up1.png" type="Texture" id=5]
+[ext_resource path="res://Zombie/up2.png" type="Texture" id=6]
+[ext_resource path="res://Zombie/up3.png" type="Texture" id=7]
+[ext_resource path="res://Zombie/move0.png" type="Texture" id=8]
+[ext_resource path="res://Zombie/move1.png" type="Texture" id=9]
+[ext_resource path="res://Zombie/taunt0.png" type="Texture" id=10]
+[ext_resource path="res://Zombie/taunt1.png" type="Texture" id=11]
+[ext_resource path="res://Zombie/death0.png" type="Texture" id=12]
+[ext_resource path="res://player_human.gd" type="Script" id=13]
+[ext_resource path="res://Player/Poses/player_idle.png" type="Texture" id=14]
+[ext_resource path="res://Player/Poses/player_jump.png" type="Texture" id=15]
+[ext_resource path="res://Player/Poses/player_fall.png" type="Texture" id=16]
+[ext_resource path="res://Player/Poses/player_duck.png" type="Texture" id=17]
+[ext_resource path="res://Player/Poses/player_walk2.png" type="Texture" id=18]
+[ext_resource path="res://Player/Poses/player_walk1.png" type="Texture" id=19]
+[ext_resource path="res://Map 1.tscn" type="PackedScene" id=20]
+[ext_resource path="res://speed.svg" type="Texture" id=21]
+[ext_resource path="res://speedx.jpg" type="Texture" id=22]
+[ext_resource path="res://Divine_Shield.png" type="Texture" id=23]
+[ext_resource path="res://invinc.png" type="Texture" id=24]
+[ext_resource path="res://fall.png" type="Texture" id=25]
+[ext_resource path="res://parry.png" type="Texture" id=26]
+[ext_resource path="res://freeze.png" type="Texture" id=27]
 
 [ext_resource path="res://world.gd" type="Script" id=1]
 [ext_resource path="res://Background.tscn" type="PackedScene" id=2]
@@ -30,24 +59,24 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "taunt",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "death",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": false,
 "name": "fall_down",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ), ExtResource( 13 ) ],
+"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "move",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "taunt",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "death",
 "speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
@@ -60,8 +89,8 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 17 ), ExtResource( 18 ) ],
-"loop": true,
+"frames": [ ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": false,
 "name": "fall_down",
 "speed": 5.0
 }, {
@@ -81,27 +110,30 @@ script = ExtResource( 1 )
 
 script = ExtResource( 3 )
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="Player_zombie" index="0"]
+[node name="zombie" type="KinematicBody2D" parent="Player_zombie" index="0"]
 
-position = Vector2( 513.419, 481.494 )
+position = Vector2( 356.611, 460.347 )
 scale = Vector2( 0.3, 0.3 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
-collision/safe_margin = 0.08
-script = ExtResource( 4 )
-_sections_unfolded = [ "Collision", "Transform", "Z Index" ]
+collision/safe_margin = 0.001
+script = ExtResource( 3 )
+_sections_unfolded = [ "Collision", "Transform", "Z Index", "collision" ]
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Player_zombie/KinematicBody2D" index="0"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Player_zombie/zombie" index="0"]
 
 frames = SubResource( 1 )
 animation = "up"
 _sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player_zombie/KinematicBody2D" index="1"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player_zombie/zombie" index="1"]
 
 build_mode = 0
-polygon = PoolVector2Array( -29.9911, 53.7421, -29.8636, -34.9834, 33.876, -34.9834, 34.3859, 53.6147 )
+polygon = PoolVector2Array( -35.6399, -40.0885, 36.4843, -38.5442, 36.9476, 56.4374, -33.941, 56.7462 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -112,12 +144,13 @@ script = ExtResource( 14 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="player_human" index="0"]
 
-position = Vector2( 1339.44, 433.605 )
+position = Vector2( 355.896, 405.675 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
-collision/safe_margin = 0.08
-script = ExtResource( 4 )
+collision/safe_margin = 0.001
+script = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="player_human/KinematicBody2D" index="0"]
 
@@ -132,11 +165,303 @@ __meta__ = {
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="player_human/KinematicBody2D" index="1"]
 
 build_mode = 0
-polygon = PoolVector2Array( -6.16016, 16.4508, -0.138306, 16.5041, 7.1626, 16.5574, 6.4165, 15.012, 6.30994, 13.6264, 8.06848, 13.5198, 9.66724, 11.6547, 9.18762, 8.88354, 8.38831, 5.73938, 8.65466, 4.67355, 6.25659, 2.64853, 7.32251, -6.19775, 7.10925, -12.2196, -4.40149, -8.91559, -6.5332, -6.14447, -6.10681, 2.06232, -8.02527, 4.88672, -7.75879, 5.47293, -9.03784, 9.30984, -8.87793, 12.5073, -7.54565, 13.8396, -5.6272, 13.6264 )
+polygon = PoolVector2Array( -10.6077, -13.3015, 11.4995, -13.0342, 11.4995, 18.2747, -10.3785, 18.1602 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Map 1" parent="." index="3" instance=ExtResource( 21 )]
+
+[node name="powerUps" type="Node2D" parent="." index="3"]
+
+position = Vector2( -148.556, -212.008 )
+
+[node name="speed" type="RigidBody2D" parent="powerUps" index="0"]
+
+position = Vector2( 415.825, 273.463 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="powerUps/speed" index="0"]
+
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 21 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="powerUps/speed" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -45.4396, 28.6668, -45.4396, -27.3552, 45.7006, -26.3996, 46.6562, 27.3528 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="speedX" type="RigidBody2D" parent="powerUps" index="1"]
+
+position = Vector2( 495.704, 281.369 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="powerUps/speedX" index="0"]
+
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 22 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="powerUps/speedX" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -28.5646, -32.6331, -28.0868, 28.7641, 27.3379, 28.6447, 26.8601, -30.6025, -27.609, -31.797 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="shield" type="RigidBody2D" parent="powerUps" index="2"]
+
+position = Vector2( 883.086, 750.844 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="powerUps/shield" index="0"]
+
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 23 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="powerUps/shield" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -22.9767, 0.125732, -22.3795, -30.334, 20.8614, -29.7367, 22.7726, 28.7937, -22.6183, 28.5548 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="invincibility" type="RigidBody2D" parent="powerUps" index="3"]
+
+position = Vector2( 616.307, 300.087 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="powerUps/invincibility" index="0"]
+
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 24 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="powerUps/invincibility" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -36.0478, -29.0147, -35.2116, 27.1268, 38.3695, 26.1712, 36.8167, -28.8952 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="fallspeed" type="RigidBody2D" parent="powerUps" index="4"]
+
+position = Vector2( 713.287, 292.424 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="powerUps/fallspeed" index="0"]
+
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 25 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="powerUps/fallspeed" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -31.8904, -33.5099, 28.1564, -33.1922, 27.8387, 32.7323, -28.8723, 33.8443 )
+
+[node name="parry" type="RigidBody2D" parent="powerUps" index="5"]
+
+position = Vector2( 792.392, 307.052 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="powerUps/parry" index="0"]
+
+scale = Vector2( 2, 2 )
+texture = ExtResource( 26 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="powerUps/parry" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -32.5213, -31.6161, 32.1324, -29.7099, 32.9267, 26.048, -32.2036, 28.9074 )
+
+[node name="freeze" type="RigidBody2D" parent="powerUps" index="6"]
+
+position = Vector2( 874.652, 289.902 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="powerUps/freeze" index="0"]
+
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 27 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="powerUps/freeze" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -37.7371, -37.1826, 41.3724, -37.1826, 30.8881, 35.5727, -36.3074, 34.143 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 
