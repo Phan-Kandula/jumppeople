@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/How To Play.png-bea1e473f3744f6024834759558de691.stex"
+
+[deps]
+
+source_file="res://Main Menu/Main Menu Assets/How To Play.png"
+source_md5="127d60d540414563e0525ef7576043fd"
+
+dest_files=[ "res://.import/How To Play.png-bea1e473f3744f6024834759558de691.stex" ]
+dest_md5="98f7e703082bb945dacc5b9d83fd3381"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

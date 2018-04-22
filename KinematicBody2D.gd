@@ -38,6 +38,7 @@ func _ready(player_1):
 	set_physics_process(true)
 	#position.x = 1 *res.x / 3
 	#position.y = 2 *res.y / 3
+
 	if player_1:
 		right = "ui_right"
 		left = "ui_left"

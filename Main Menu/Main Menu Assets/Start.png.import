@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Start.png-ac28323866345bb26c48ba33ee70b2e3.stex"
+
+[deps]
+
+source_file="res://Main Menu/Main Menu Assets/Start.png"
+source_md5="59fb0b16a879454898736f8749600506"
+
+dest_files=[ "res://.import/Start.png-ac28323866345bb26c48ba33ee70b2e3.stex" ]
+dest_md5="7f0b97e32bb5de6515c57afcbc6a07a7"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
