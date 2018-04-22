@@ -52,12 +52,12 @@ func _physics_process(delta):
 		$AnimatedSprite.animation = "fall_down"
 		
 	if position.x == 0:
-		position.x = res.x - 50
+		position.x = res.x - 1
 	if position.y == 0:
 		position.y = res.y - 50
 		can_jump = true
 	if position.x == res.x:
-		position.x = 50
+		position.x = 1
 	if position.y == res.y:
 		position.y = 50
 		can_jump = false
