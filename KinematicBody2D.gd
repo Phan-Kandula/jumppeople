@@ -18,8 +18,6 @@ var special
 func _ready(player_1):
 	res = get_viewport_rect().size
 	set_physics_process(true)
-	position.x = 2 *res.x / 3
-	position.y = 2 *res.y / 3
 	if player_1:
 		right = "ui_right"
 		left = "ui_left"
