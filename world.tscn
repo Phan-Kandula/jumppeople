@@ -1,57 +1,58 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://world.gd" type="Script" id=1]
-[ext_resource path="res://scene.gd" type="Script" id=2]
-[ext_resource path="res://KinematicBody2D.gd" type="Script" id=3]
-[ext_resource path="res://Zombie/up0.png" type="Texture" id=4]
-[ext_resource path="res://Zombie/up1.png" type="Texture" id=5]
-[ext_resource path="res://Zombie/up2.png" type="Texture" id=6]
-[ext_resource path="res://Zombie/up3.png" type="Texture" id=7]
-[ext_resource path="res://Zombie/move0.png" type="Texture" id=8]
-[ext_resource path="res://Zombie/move1.png" type="Texture" id=9]
-[ext_resource path="res://Zombie/taunt0.png" type="Texture" id=10]
-[ext_resource path="res://Zombie/taunt1.png" type="Texture" id=11]
-[ext_resource path="res://Zombie/death0.png" type="Texture" id=12]
-[ext_resource path="res://player_human.gd" type="Script" id=13]
-[ext_resource path="res://Player/Poses/player_idle.png" type="Texture" id=14]
-[ext_resource path="res://Player/Poses/player_jump.png" type="Texture" id=15]
-[ext_resource path="res://Player/Poses/player_fall.png" type="Texture" id=16]
-[ext_resource path="res://Player/Poses/player_duck.png" type="Texture" id=17]
-[ext_resource path="res://Player/Poses/player_walk2.png" type="Texture" id=18]
-[ext_resource path="res://Player/Poses/player_walk1.png" type="Texture" id=19]
-[ext_resource path="res://Map 1.tscn" type="PackedScene" id=20]
-[ext_resource path="res://speed.svg" type="Texture" id=21]
-[ext_resource path="res://speedx.jpg" type="Texture" id=22]
-[ext_resource path="res://Divine_Shield.png" type="Texture" id=23]
-[ext_resource path="res://invinc.png" type="Texture" id=24]
-[ext_resource path="res://fall.png" type="Texture" id=25]
-[ext_resource path="res://parry.png" type="Texture" id=26]
-[ext_resource path="res://freeze.png" type="Texture" id=27]
+[ext_resource path="res://Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scene.gd" type="Script" id=3]
+[ext_resource path="res://KinematicBody2D.gd" type="Script" id=4]
+[ext_resource path="res://Zombie/up0.png" type="Texture" id=5]
+[ext_resource path="res://Zombie/up1.png" type="Texture" id=6]
+[ext_resource path="res://Zombie/up2.png" type="Texture" id=7]
+[ext_resource path="res://Zombie/up3.png" type="Texture" id=8]
+[ext_resource path="res://Zombie/move0.png" type="Texture" id=9]
+[ext_resource path="res://Zombie/move1.png" type="Texture" id=10]
+[ext_resource path="res://Zombie/taunt0.png" type="Texture" id=11]
+[ext_resource path="res://Zombie/taunt1.png" type="Texture" id=12]
+[ext_resource path="res://Zombie/death0.png" type="Texture" id=13]
+[ext_resource path="res://player_human.gd" type="Script" id=14]
+[ext_resource path="res://Player/Poses/player_idle.png" type="Texture" id=15]
+[ext_resource path="res://Player/Poses/player_jump.png" type="Texture" id=16]
+[ext_resource path="res://Player/Poses/player_fall.png" type="Texture" id=17]
+[ext_resource path="res://Player/Poses/player_duck.png" type="Texture" id=18]
+[ext_resource path="res://Player/Poses/player_walk2.png" type="Texture" id=19]
+[ext_resource path="res://Player/Poses/player_walk1.png" type="Texture" id=20]
+[ext_resource path="res://Map 1.tscn" type="PackedScene" id=21]
+[ext_resource path="res://speed.svg" type="Texture" id=22]
+[ext_resource path="res://speedx.jpg" type="Texture" id=23]
+[ext_resource path="res://Divine_Shield.png" type="Texture" id=24]
+[ext_resource path="res://invinc.png" type="Texture" id=25]
+[ext_resource path="res://fall.png" type="Texture" id=26]
+[ext_resource path="res://parry.png" type="Texture" id=27]
+[ext_resource path="res://freeze.png" type="Texture" id=28]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": false,
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": false,
 "name": "fall_down",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "move",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "taunt",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ) ],
+"frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "death",
 "speed": 5.0
@@ -61,17 +62,17 @@ _sections_unfolded = [ "Resource" ]
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 14 ), ExtResource( 15 ) ],
+"frames": [ ExtResource( 15 ), ExtResource( 16 ) ],
 "loop": true,
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ) ],
+"frames": [ ExtResource( 17 ), ExtResource( 18 ) ],
 "loop": false,
 "name": "fall_down",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 18 ), ExtResource( 19 ) ],
+"frames": [ ExtResource( 19 ), ExtResource( 20 ) ],
 "loop": true,
 "name": "move",
 "speed": 5.0
@@ -81,9 +82,11 @@ animations = [ {
 
 script = ExtResource( 1 )
 
-[node name="Player_zombie" type="Node" parent="." index="0"]
+[node name="Background" parent="." index="0" instance=ExtResource( 2 )]
 
-script = ExtResource( 2 )
+[node name="Player_zombie" type="Node" parent="." index="1"]
+
+script = ExtResource( 3 )
 
 [node name="zombie" type="KinematicBody2D" parent="Player_zombie" index="0"]
 
@@ -93,8 +96,11 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.001
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 _sections_unfolded = [ "Collision", "Transform", "Z Index", "collision" ]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player_zombie/zombie" index="0"]
 
@@ -113,9 +119,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="player_human" type="Node" parent="." index="1"]
+[node name="player_human" type="Node" parent="." index="2"]
 
-script = ExtResource( 13 )
+script = ExtResource( 14 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="player_human" index="0"]
 
@@ -124,8 +130,11 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.001
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="player_human/KinematicBody2D" index="0"]
 
@@ -145,9 +154,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Map 1" parent="." index="2" instance=ExtResource( 20 )]
+[node name="Map 1" parent="." index="3" instance=ExtResource( 21 )]
 
-[node name="powerUps" type="Node2D" parent="." index="3"]
+[node name="powerUps" type="Node2D" parent="." index="4"]
 
 position = Vector2( -148.556, -212.008 )
 
@@ -179,7 +188,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="powerUps/speed" index="0"]
 
 scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 21 )
+texture = ExtResource( 22 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -221,7 +230,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="powerUps/speedX" index="0"]
 
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 22 )
+texture = ExtResource( 23 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -263,7 +272,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="powerUps/shield" index="0"]
 
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 23 )
+texture = ExtResource( 24 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -305,7 +314,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="powerUps/invincibility" index="0"]
 
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 24 )
+texture = ExtResource( 25 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -347,7 +356,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="powerUps/fallspeed" index="0"]
 
 scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 25 )
+texture = ExtResource( 26 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -386,7 +395,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="powerUps/parry" index="0"]
 
 scale = Vector2( 2, 2 )
-texture = ExtResource( 26 )
+texture = ExtResource( 27 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -425,7 +434,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="powerUps/freeze" index="0"]
 
 scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 27 )
+texture = ExtResource( 28 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
