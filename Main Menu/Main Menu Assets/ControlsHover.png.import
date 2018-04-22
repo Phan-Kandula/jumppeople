@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/ControlsHover.png-36bd65ff2e3df9edd49015f8ed4f71d0.stex"
+
+[deps]
+
+source_file="res://Main Menu/Main Menu Assets/ControlsHover.png"
+source_md5="b85d73458f4271f036b6a8844f51bce2"
+
+dest_files=[ "res://.import/ControlsHover.png-36bd65ff2e3df9edd49015f8ed4f71d0.stex" ]
+dest_md5="11256d65591db8105b131bb5d396a5a5"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
