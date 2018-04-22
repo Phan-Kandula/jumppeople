@@ -1,4 +1,4 @@
 extends Node
 
 func _ready():
-	$KinematicBody2D._ready(true)
+	$KinematicBody2D._ready(false)
