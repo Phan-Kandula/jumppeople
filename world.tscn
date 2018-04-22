@@ -5,13 +5,13 @@
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=3]
 [ext_resource path="res://Zombie/up0.png" type="Texture" id=4]
 [ext_resource path="res://Zombie/up1.png" type="Texture" id=5]
-[ext_resource path="res://Zombie/up2.png" type="Texture" id=6]
-[ext_resource path="res://Zombie/up3.png" type="Texture" id=7]
-[ext_resource path="res://Zombie/move0.png" type="Texture" id=8]
-[ext_resource path="res://Zombie/move1.png" type="Texture" id=9]
-[ext_resource path="res://Zombie/taunt0.png" type="Texture" id=10]
-[ext_resource path="res://Zombie/taunt1.png" type="Texture" id=11]
-[ext_resource path="res://Zombie/death0.png" type="Texture" id=12]
+[ext_resource path="res://Zombie/taunt0.png" type="Texture" id=6]
+[ext_resource path="res://Zombie/taunt1.png" type="Texture" id=7]
+[ext_resource path="res://Zombie/death0.png" type="Texture" id=8]
+[ext_resource path="res://Zombie/up2.png" type="Texture" id=9]
+[ext_resource path="res://Zombie/up3.png" type="Texture" id=10]
+[ext_resource path="res://Zombie/move0.png" type="Texture" id=11]
+[ext_resource path="res://Zombie/move1.png" type="Texture" id=12]
 [ext_resource path="res://player_human.gd" type="Script" id=13]
 [ext_resource path="res://Player/Poses/player_idle.png" type="Texture" id=14]
 [ext_resource path="res://Player/Poses/player_jump.png" type="Texture" id=15]
@@ -30,23 +30,23 @@ animations = [ {
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": false,
-"name": "fall_down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "move",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "taunt",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ) ],
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "death",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "fall_down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "move",
 "speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
@@ -134,6 +134,6 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Map 1" type="Node" parent="." index="2" instance=ExtResource( 20 )]
+[node name="Map 1" parent="." index="2" instance=ExtResource( 20 )]
 
 
