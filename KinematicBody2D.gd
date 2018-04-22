@@ -6,6 +6,7 @@ const ACCELERATION = 50
 const SPEED = 200
 const MAXSPEED = 400
 const JUMP_HEIGHT = -550
+var can_jump = false
 
 var res
 var motion = Vector2()
@@ -13,6 +14,8 @@ var motion = Vector2()
 func _ready():
 	res = get_viewport_rect().size
 	set_physics_process(true)
+	position.x = res.x / 3
+	position.y = res.y / 3
 	pass
 	
 func _physics_process(delta):
@@ -27,9 +30,10 @@ func _physics_process(delta):
 #		if -motion.x > MAXSPEED:
 		motion.x = -SPEED
 	#if is_on_floor():
-	if Input.is_action_just_pressed("ui_up"):
+	if Input.is_action_just_pressed("ui_up") and (is_on_floor() or can_jump):
 		motion.y = JUMP_HEIGHT
 		$AnimatedSprite.play("up")
+		can_jump = false
 	
 	
 	position.x = clamp(position.x, 0, res.x)
@@ -46,6 +50,17 @@ func _physics_process(delta):
 		$AnimatedSprite.flip_h = motion.x < 0
 	if motion.y > 0:
 		$AnimatedSprite.animation = "fall_down"
+		
+	if position.x == 0:
+		position.x = res.x - 50
+	if position.y == 0:
+		position.y = res.y - 50
+		can_jump = true
+	if position.x == res.x:
+		position.x = 50
+	if position.y == res.y:
+		position.y = 50
+		can_jump = false
 	
 	motion = move_and_slide(motion, UP)
 
@@ -105,4 +120,3 @@ func _physics_process(delta):
 #func start():
 #	position.x = res.x * 0.5
 #	position.y = res.y * 0.5
-
