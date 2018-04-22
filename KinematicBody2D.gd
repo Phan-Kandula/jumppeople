@@ -170,14 +170,3 @@ func _physics_process(delta):
 				print("Human Health ", bodyHit.health)
 				dead()
 	
-
-
-func dead():
-	$AnimatedSprite.play("dead")
-	$AnimatedSprite.animation = "dead"
-	print("dying")
-	
-
-func _on_AnimatedSprite_frame_changed():
-	print("changed")
-	pass # replace with function body
