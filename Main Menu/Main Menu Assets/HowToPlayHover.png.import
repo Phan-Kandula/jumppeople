@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/HowToPlayHover.png-c1c95b35a28d350970e97b562d95f64d.stex"
+
+[deps]
+
+source_file="res://Main Menu/Main Menu Assets/HowToPlayHover.png"
+source_md5="8daa938d1e51c109cc3af26b0549dc79"
+
+dest_files=[ "res://.import/HowToPlayHover.png-c1c95b35a28d350970e97b562d95f64d.stex" ]
+dest_md5="0e0ac211b3812456bc2aa7c9c4bf5903"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
